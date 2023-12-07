@@ -1,6 +1,0 @@
-com/example/demo/DemoApplication.class
-com/example/demo/controller/HelloController.class
-com/example/demo/controller/UserController.class
-com/example/demo/service/TutorialService.class
-com/example/demo/controller/TutorialController.class
-com/example/demo/model/Tutorial.class
