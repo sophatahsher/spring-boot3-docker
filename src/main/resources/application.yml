@@ -1,0 +1,19 @@
+server:
+  port: 8080
+#spring:
+#  datasource:
+    # POSTGRESQL
+    #postgresql:
+#    url: jdbc:postgresql://postgres:5433/dockerdb
+#    username: dockeruser
+#    password: dockerpassword
+#    driver-class-name: org.postgresql.Driver
+    # MYSQL
+#    mysql:
+#      url: jdbc:mysql://localhost:9906/mysql_db
+#      username: USER
+#      password: PASS
+#      driver-class-name: com.mysql.jdbc.Driver
+#  jpa:
+#    hibernate:
+ #     ddl-auto: update

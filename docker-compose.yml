@@ -1,6 +1,35 @@
 version: '3.8'
 
 services:
+  mysqldb:
+    container_name: mysql
+    image: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: "root"
+      MYSQL_DATABASE: "test_db"
+      MYSQL_USER: "test"
+      MYSQL_PASSWORD: "test"
+    ports:
+      - "9906:3306"
+
+  phpmyadmin:
+    image: phpmyadmin
+    container_name: phpmyadmin
+    links:
+      - mysqldb
+    environment:
+      PMA_HOST: "mysqldb"
+      MYSQL_ROOT_PASSWORD: "root"
+      MYSQL_DATABASE: "test_db"
+      MYSQL_USER: "test"
+      MYSQL_PASSWORD: "test"
+    restart: always
+    ports:
+      - "8081:80"
+    volumes:
+      - mysql-data:/var/lib/mysql
+
   postgres:
     image: postgres:13-alpine
     environment:
@@ -37,3 +66,4 @@ services:
 volumes:
   postgres-data:
   pgadmin-data:
+  mysql-data:

@@ -37,6 +37,13 @@
 			<scope>test</scope>
 		</dependency>
 
+		<!-- Vaadin Spring Boot starter -->
+<!--		<dependency>-->
+<!--			<groupId>com.vaadin</groupId>-->
+<!--			<artifactId>vaadin-spring-boot-starter</artifactId>-->
+<!--			<version>24.0.7</version>-->
+<!--		</dependency>-->
+
 		<dependency>
 			<groupId>org.springdoc</groupId>
 			<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
@@ -44,22 +51,25 @@
 		</dependency>
 
 <!--		<dependency>-->
-<!--			<groupId>io.springfox</groupId>-->
-<!--			<artifactId>springfox-swagger2</artifactId>-->
-<!--			<version>3.0.0</version>-->
+<!--			<groupId>org.springframework.boot</groupId>-->
+<!--			<artifactId>spring-boot-starter-thymeleaf</artifactId>-->
 <!--		</dependency>-->
 
 <!--		<dependency>-->
-<!--			<groupId>io.springfox</groupId>-->
-<!--			<artifactId>springfox-swagger-ui</artifactId>-->
-<!--			<version>3.0.0</version>-->
+<!--			<groupId>org.springframework.boot</groupId>-->
+<!--			<artifactId>spring-boot-starter-security</artifactId>-->
+<!--		</dependency>-->
+<!--		<dependency>-->
+<!--			<groupId>org.thymeleaf.extras</groupId>-->
+<!--			<artifactId>thymeleaf-extras-springsecurity6</artifactId>-->
+<!--			<version>3.1.1.RELEASE</version>-->
+<!--		</dependency>-->
+<!--		<dependency>-->
+<!--			<groupId>org.springframework.security</groupId>-->
+<!--			<artifactId>spring-security-test</artifactId>-->
+<!--			<scope>test</scope>-->
 <!--		</dependency>-->
 
-<!--		<dependency>-->
-<!--			<groupId>org.springframework</groupId>-->
-<!--			<artifactId>spring-jdbc</artifactId>-->
-<!--			<version>4.3.4.RELEASE</version>-->
-<!--		</dependency>-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-jdbc</artifactId>
@@ -74,6 +84,15 @@
 		<!--END DATABASE -->
 
 	</dependencies>
+
+<!--	<profiles>-->
+<!--		<profile>-->
+<!--			<id>dev</id>-->
+<!--			<activation>-->
+<!--				<activeByDefault>true</activeByDefault>-->
+<!--			</activation>-->
+<!--		</profile>-->
+<!--	</profiles>-->
 
 	<build>
 		<plugins>
