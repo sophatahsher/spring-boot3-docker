@@ -1,6 +1,9 @@
 package com.example.demo.config;
 
 import com.zaxxer.hikari.HikariDataSource;
+import lombok.Value;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceProperties;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -8,32 +11,17 @@ import org.springframework.context.annotation.Primary;
 
 import javax.sql.DataSource;
 
-//@Configuration
-//public class DatabaseConfiguration {
-    /*
+@Configuration
+public class DatabaseConfiguration {
+
+    @Bean
     @Primary
-    @Bean(name="PostgresDataSource")
-    public DataSource PostgresDataSource () {
-        //return DataSourceBuilder.create().type(HikariDataSource.class).build();
-        return DataSourceBuilder.create()
-                .driverClassName("org.postgresql.Driver")
-                .url("jdbc:postgresql://192.168.1.31:5432/test_db_1")
-                .username("postgres")
-                .password("postgres")
-                .build();
-    }
+    @ConfigurationProperties(prefix = "spring.postgresql-datasource")
+    public DataSource PostgresqlDataSource() { return DataSourceBuilder.create().build(); }
 
-    @Bean(name="MySQLDataSource")
+    @Bean
+    @ConfigurationProperties(prefix = "spring.mysql-datasource")
     public DataSource MySQLDataSource() {
-
-        return DataSourceBuilder.create()
-                .driverClassName("org.postgresql.Driver")
-                .url("jdbc:postgresql://192.168.1.31:5432/test_db_1")
-                .username("postgres")
-                .password("postgres")
-                .build();
-        //return DataSourceBuilder.create().type(HikariDataSource.class).build();
+        return DataSourceBuilder.create().build();
     }
-    */
-
-//}
+}

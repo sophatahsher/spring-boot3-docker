@@ -23,7 +23,7 @@ public class SwaggerConfig {
                 swaggerDesc += "### Authorization \n";
                 swaggerDesc += "The API uses the standard HTTP `Authorization` header to pass authentication information.\n";
                 swaggerDesc += "### Response Format \n";
-                swaggerDesc += "There are two types of response: \n\n";
+                swaggerDesc += "There are two types of @response: \n\n";
                 swaggerDesc += "__Success__: \n\n";
                 swaggerDesc += "__Error__: \n\n";
 

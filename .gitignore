@@ -1,17 +1,22 @@
-target/*
-bin/*
-build/*
-.gradle/*
-.settings/*
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+### STS ###
+.apt_generated
 .classpath
-.project
 .factorypath
-.attach_pid*
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
 .idea
+*.iws
 *.iml
-/target
-.sts4-cache/
-.vscode
-_site/
-*.css
-!petclinic.css
+*.ipr
+
+### VS Code ###
+.vscode/

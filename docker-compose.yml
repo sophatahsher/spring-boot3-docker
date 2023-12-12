@@ -8,27 +8,31 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: "root"
       MYSQL_DATABASE: "test_db"
-      MYSQL_USER: "test"
-      MYSQL_PASSWORD: "test"
+      MYSQL_USER: "USER"
+      MYSQL_PASSWORD: "PASS"
     ports:
-      - "9906:3306"
+      - "9905:3306"
+    networks:
+      - api-spring
 
-  phpmyadmin:
+  jphpmyadmin:
     image: phpmyadmin
-    container_name: phpmyadmin
+    container_name: jphpmyadmin
     links:
       - mysqldb
     environment:
       PMA_HOST: "mysqldb"
       MYSQL_ROOT_PASSWORD: "root"
       MYSQL_DATABASE: "test_db"
-      MYSQL_USER: "test"
-      MYSQL_PASSWORD: "test"
+      MYSQL_USER: "USER"
+      MYSQL_PASSWORD: "PASS"
     restart: always
     ports:
-      - "8081:80"
+      - "8082:80"
     volumes:
       - mysql-data:/var/lib/mysql
+    networks:
+      - api-spring
 
   postgres:
     image: postgres:13-alpine
@@ -40,6 +44,8 @@ services:
       - "5433:5432"
     volumes:
       - postgres-data:/var/lib/postgresql/data
+    networks:
+      - api-spring
 
   pgadmin:
     image: dpage/pgadmin4
@@ -52,18 +58,30 @@ services:
       PGADMIN_DEFAULT_PASSWORD: Master@123
     volumes:
       - pgadmin-data:/var/lib/pgadmin
+    networks:
+      - api-spring
   app:
     build: .
     ports:
       - "8080:8080"
     depends_on:
       - postgres
+      #- mysqldb
     environment:
       SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/dockerdb
       SPRING_DATASOURCE_USERNAME: dockeruser
       SPRING_DATASOURCE_PASSWORD: dockerpassword
+#      SPRING_DATASOURCE_URL: jdbc:mysql://mysqldb:9905/test_db
+#      SPRING_DATASOURCE_USERNAME: USER
+#      SPRING_DATASOURCE_PASSWORD: PASS
+      SPRING_PROFILES_ACTIVE: dev
+    networks:
+      - api-spring
 
 volumes:
   postgres-data:
   pgadmin-data:
   mysql-data:
+
+networks:
+  api-spring:
